@@ -1,0 +1,160 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.pi4j</groupId>
+    <artifactId>raspberry-pi-info</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>PiHeaders</name>
+    <description>Java Utility Library providing info about the Raspberry Pi boards</description>
+    <url>https://github.com/FDelporte/PiHeaders</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- App configuration -->
+        <app.main.class>com.pi4j.raspberrypiinfo.MarkdownGenerator</app.main.class>
+        <app.distribution.directory>${project.build.directory}/distributions/app</app.distribution.directory>
+
+
+
+        <!-- Plugins -->
+        <jreleaser.version>1.1.0</jreleaser.version>
+    </properties>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Frank Delporte</name>
+            <email>frank@webtechie.be</email>
+            <organization>WebTechie.be</organization>
+            <organizationUrl>https://www.webtechie.be</organizationUrl>
+        </developer>
+    </developers>
+
+    <dependencies>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>${app.main.class}</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${app.main.class}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>2.1.0</version>
+                <configuration>
+                    <assembleDirectory>${project.build.directory}/binary</assembleDirectory>
+                    <repositoryLayout>flat</repositoryLayout>
+                    <repositoryName>lib</repositoryName>
+                    <programs>
+                        <program>
+                            <mainClass>${app.main.class}</mainClass>
+                            <id>app</id>
+                        </program>
+                    </programs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-distribution</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <attach>false</attach>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                    <outputDirectory>${app.distribution.directory}</outputDirectory>
+                    <workDirectory>${project.build.directory}/assembly/work</workDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-distribution</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jreleaser</groupId>
+                <artifactId>jreleaser-maven-plugin</artifactId>
+                <version>${jreleaser.version}</version>
+                <configuration>
+                    <jreleaser>
+                        <project>
+                            <java>
+                                <mainClass>${app.main.class}</mainClass>
+                            </java>
+                        </project>
+                        <release>
+                            <github>
+                                <owner>pi4j</owner>
+                                <overwrite>true</overwrite>
+                            </github>
+                        </release>
+                        <distributions>
+                            <app>
+                                <artifacts>
+                                    <artifact>
+                                        <path>
+                                            ${app.distribution.directory}/${project.artifactId}-${project.version}.zip
+                                        </path>
+                                    </artifact>
+                                    <artifact>
+                                        <path>
+                                            ${app.distribution.directory}/${project.artifactId}-${project.version}.tar.gz
+                                        </path>
+                                    </artifact>
+                                </artifacts>
+                            </app>
+                        </distributions>
+                    </jreleaser>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
