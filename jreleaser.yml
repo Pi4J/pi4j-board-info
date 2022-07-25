@@ -1,0 +1,23 @@
+project:
+  name: app
+  version: 1.0.0-SNAPSHOT
+  description: Awesome App
+  longDescription: Awesome App
+  website: https://pi4j.com
+  authors:
+    - Duke
+  license: Apache-2
+  java:
+    groupId: com.pi4j
+    version: 11
+  extraProperties:
+    inceptionYear: 2022
+
+release:
+  github:
+    owner: duke
+
+distributions:
+  app:
+    artifacts:
+      - path: path/to/{{distributionName}}-{{projectVersion}}.zip
