@@ -1,5 +1,8 @@
 package com.pi4j.raspberrypiinfo.definition;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum BoardType {
     ALL_IN_ONE_COMPUTER,
     MICROCONTROLLER,

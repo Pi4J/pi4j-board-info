@@ -1,9 +1,11 @@
 package com.pi4j.raspberrypiinfo.definition;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pi4j.raspberrypiinfo.util.Markdown;
 
 import java.util.Arrays;
 
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum PiModel {
     MODEL_A("Model A", "Without ethernet connector"),
     MODEL_B("Model B", "With ethernet connector"),

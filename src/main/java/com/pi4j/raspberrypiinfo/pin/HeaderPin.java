@@ -1,5 +1,6 @@
 package com.pi4j.raspberrypiinfo.pin;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pi4j.raspberrypiinfo.definition.PinFunction;
 import com.pi4j.raspberrypiinfo.definition.PinType;
 import com.pi4j.raspberrypiinfo.util.Markdown;
@@ -8,6 +9,7 @@ import java.util.Arrays;
 /**
  * Describes a pin in the header.
  */
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public class HeaderPin {
     private final int pinNumber;
     private final PinType pinType;

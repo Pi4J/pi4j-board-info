@@ -1,11 +1,13 @@
 package com.pi4j.raspberrypiinfo.definition;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pi4j.raspberrypiinfo.util.Markdown;
 import java.util.Arrays;
 
 /**
  * List of pin types in a header.
  */
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum PinType {
     POWER("Power", 0x990000),
     GROUND("Ground", 0x000000),

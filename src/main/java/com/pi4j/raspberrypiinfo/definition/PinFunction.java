@@ -1,11 +1,13 @@
 package com.pi4j.raspberrypiinfo.definition;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pi4j.raspberrypiinfo.util.Markdown;
 import java.util.Arrays;
 
 /**
  * List of pin functions in a header.
  */
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum PinFunction {
     UART("Universal Asynchronous Receiver and Transmitter", "Asynchronous serial communication protocol"),
     GPCLK("General Purpose Clock", "Output a fixed frequency"),
