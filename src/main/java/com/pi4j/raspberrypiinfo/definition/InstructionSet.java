@@ -3,14 +3,15 @@ package com.pi4j.raspberrypiinfo.definition;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum Processor {
-    ARM_V6("ARM_V6"),
-    ARM_V7("ARM_V7"),
-    ARM_V8("ARM_V8");
+public enum InstructionSet {
+    ARM_V6_M("ARMv6-M"),
+    ARM_V6("ARMv6"),
+    ARM_V7("ARMv7"),
+    ARM_V8("ARMv8");
 
     private final String label;
 
-    Processor(String label) {
+    InstructionSet(String label) {
         this.label = label;
     }
 
