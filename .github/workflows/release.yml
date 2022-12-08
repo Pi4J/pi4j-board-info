@@ -1,9 +1,13 @@
 # Release with JReleaser
 # https://jreleaser.org/guide/latest/continuous-integration/github-actions.html
-name: release
+
+name: Java CI with Maven
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   release:
@@ -33,7 +37,6 @@ jobs:
       # https://jreleaser.org/guide/latest/examples/maven/staging-artifacts.html
 
       - name: Build for release
-        uses:
         run: |
           mvn -Ppublication deploy -DaltDeploymentRepository=local::file:./target/staging-deploy
           ls -laR ./target/staging-deploy
