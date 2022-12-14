@@ -1,4 +1,4 @@
-package com.pi4j.raspberrypiinfo.definition;
+package com.pi4j.boardinfo.definition;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

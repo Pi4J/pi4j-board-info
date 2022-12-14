@@ -1,11 +1,11 @@
-package com.pi4j.raspberrypiinfo;
+package com.pi4j.boardinfo;
 
-import com.pi4j.raspberrypiinfo.definition.HeaderPins;
-import com.pi4j.raspberrypiinfo.definition.BoardModel;
-import com.pi4j.raspberrypiinfo.definition.PiModel;
-import com.pi4j.raspberrypiinfo.definition.HeaderVersion;
-import com.pi4j.raspberrypiinfo.definition.PinFunction;
-import com.pi4j.raspberrypiinfo.definition.PinType;
+import com.pi4j.boardinfo.definition.HeaderPins;
+import com.pi4j.boardinfo.definition.BoardModel;
+import com.pi4j.boardinfo.definition.PiModel;
+import com.pi4j.boardinfo.definition.HeaderVersion;
+import com.pi4j.boardinfo.definition.PinFunction;
+import com.pi4j.boardinfo.definition.PinType;
 import java.io.File;
 import java.io.PrintWriter;
 import java.net.URL;

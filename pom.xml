@@ -2,10 +2,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.pi4j</groupId>
-    <artifactId>raspberry-pi-info</artifactId>
+    <artifactId>pi4j-board-info</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>PiHeaders</name>
+    <name>Pi4J Board Info</name>
     <description>Java Utility Library providing info about the Raspberry Pi boards</description>
     <url>https://github.com/FDelporte/PiHeaders</url>
 
@@ -16,11 +16,14 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- App configuration -->
-        <app.main.class>com.pi4j.raspberrypiinfo.MarkdownGenerator</app.main.class>
+        <app.main.class>com.pi4j.boardinfo.MarkdownGenerator</app.main.class>
         <app.distribution.directory>${project.build.directory}/distributions/app</app.distribution.directory>
 
         <!-- Dependencies -->
         <jackson.version>2.13.4</jackson.version>
+
+        <!-- Test Dependencies -->
+        <junit.jupiter.version>5.9.1</junit.jupiter.version>
 
         <!-- Plugins -->
         <jreleaser.version>1.1.0</jreleaser.version>
@@ -47,6 +50,26 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -1,4 +1,4 @@
-package com.pi4j.raspberrypiinfo.util;
+package com.pi4j.boardinfo.util;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class Markdown {
             row2.append(":--- | ");
         }
 
-        return row1.toString() + System.lineSeparator() + row2.toString() + System.lineSeparator();
+        return row1 + System.lineSeparator() + row2 + System.lineSeparator();
     }
 
     public static String toValueRow(List<String> values) {

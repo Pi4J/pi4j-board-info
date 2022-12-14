@@ -49,9 +49,11 @@ jobs:
           MAVEN_CENTRAL_TOKEN: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
-          export GPG_TTY=$(tty)
-          git config user.name "${{ github.event.head_commit.committer.name }}"
-          git config user.email "${{ github.event.head_commit.committer.email }}"
+          
+
+      # export GPG_TTY=$(tty)
+      # git config user.name "${{ github.event.head_commit.committer.name }}"
+      # git config user.email "${{ github.event.head_commit.committer.email }}"
       # mvn -B --file pom.xml release:prepare release:perform
 
       # Create a release

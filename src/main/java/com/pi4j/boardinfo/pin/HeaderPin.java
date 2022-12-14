@@ -1,9 +1,9 @@
-package com.pi4j.raspberrypiinfo.pin;
+package com.pi4j.boardinfo.pin;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.pi4j.raspberrypiinfo.definition.PinFunction;
-import com.pi4j.raspberrypiinfo.definition.PinType;
-import com.pi4j.raspberrypiinfo.util.Markdown;
+import com.pi4j.boardinfo.definition.PinFunction;
+import com.pi4j.boardinfo.definition.PinType;
+import com.pi4j.boardinfo.util.Markdown;
 import java.util.Arrays;
 
 /**

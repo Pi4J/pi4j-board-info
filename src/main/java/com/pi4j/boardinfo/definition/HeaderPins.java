@@ -1,8 +1,8 @@
-package com.pi4j.raspberrypiinfo.definition;
+package com.pi4j.boardinfo.definition;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.pi4j.raspberrypiinfo.pin.HeaderPin;
-import com.pi4j.raspberrypiinfo.util.Markdown;
+import com.pi4j.boardinfo.pin.HeaderPin;
+import com.pi4j.boardinfo.util.Markdown;
 
 import java.util.ArrayList;
 import java.util.Arrays;

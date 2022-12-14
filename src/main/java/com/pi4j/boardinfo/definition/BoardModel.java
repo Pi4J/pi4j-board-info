@@ -1,6 +1,6 @@
-package com.pi4j.raspberrypiinfo.definition;
+package com.pi4j.boardinfo.definition;
 
-import com.pi4j.raspberrypiinfo.util.Markdown;
+import com.pi4j.boardinfo.util.Markdown;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.pi4j.raspberrypiinfo.definition.BoardType.*;
+import static com.pi4j.boardinfo.definition.BoardType.*;
 
 /**
  * Partially based on <a href="https://en.wikipedia.org/wiki/Raspberry_Pi#Specifications">en.wikipedia.org/wiki/Raspberry_Pi</a>
