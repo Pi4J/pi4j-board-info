@@ -20,8 +20,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Configure build steps as you'd normally do
-
+      # Setup the Java version
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
@@ -35,21 +34,22 @@ jobs:
 
       # Prepare for upload to Maven Central
       # https://jreleaser.org/guide/latest/examples/maven/staging-artifacts.html
-
       - name: Build for release
         run: |
           mvn -Ppublication deploy -DaltDeploymentRepository=local::file:./target/staging-deploy
+
+      - name: List files staged for release
+        run: |
           ls -laR ./target/staging-deploy
 
       # Post JARs to Maven Central
-
       - name: Release to Maven Central
         env:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
-          
+          echo "TODO"
 
       # export GPG_TTY=$(tty)
       # git config user.name "${{ github.event.head_commit.committer.name }}"
