@@ -32,6 +32,16 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
+      # Prepare for upload to Maven Central
+      # https://jreleaser.org/guide/latest/examples/maven/staging-artifacts.html
+      - name: Build for release
+        run: |
+          mvn -ntp -B -Ppublication deploy -DaltDeploymentRepository=local::file:./target/staging-deploy
+
+      - name: List files staged for release
+        run: |
+          ls -laR ./target/staging-deploy
+
       # Post JARs to Maven Central
       # https://jreleaser.org/guide/latest/examples/maven/maven-central.html
       - name: Release to Maven Central
