@@ -116,9 +116,9 @@
                 <configuration>
                     <attach>false</attach>
                     <appendAssemblyId>false</appendAssemblyId>
-                    <descriptors>
+                    <!--<descriptors>
                         <descriptor>src/main/assembly/assembly.xml</descriptor>
-                    </descriptors>
+                    </descriptors>-->
                     <outputDirectory>${app.distribution.directory}</outputDirectory>
                     <workDirectory>${project.build.directory}/assembly/work</workDirectory>
                 </configuration>
