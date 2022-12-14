@@ -161,6 +161,7 @@
                 <configuration>
                     <jreleaser>
                         <project>
+                            <copyright>pi4j.com</copyright>
                             <java>
                                 <mainClass>${app.main.class}</mainClass>
                             </java>
