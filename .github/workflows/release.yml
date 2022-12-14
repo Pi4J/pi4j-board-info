@@ -32,10 +32,6 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
-      - name: List files staged for release
-        run: |
-          ls -laR ./target/staging-deploy
-
       # Post JARs to Maven Central
       # https://jreleaser.org/guide/latest/examples/maven/maven-central.html
       - name: Release to Maven Central
