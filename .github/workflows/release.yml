@@ -32,6 +32,11 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
+      # Check JReleaser config
+      - name: Check if JReleaser config is OK
+        run: |
+          mvn jreleaser:config
+
       # Prepare for upload to Maven Central
       # https://jreleaser.org/guide/latest/examples/maven/staging-artifacts.html
       - name: Build for release
