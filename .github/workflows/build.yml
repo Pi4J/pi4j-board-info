@@ -28,4 +28,4 @@ jobs:
       # Build and run tests
       - name: Maven package
         run: |
-          mvn package
+          mvn -ntp -B package
