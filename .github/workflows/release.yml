@@ -1,11 +1,13 @@
 # Release with JReleaser
 # https://jreleaser.org/guide/latest/continuous-integration/github-actions.html
 
-name: Java CI with Maven
+name: Release to Maven Repository with Java CI, Maven, and JReleaser
 
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - '*'
   pull_request:
     branches: [ "main" ]
 
@@ -14,11 +16,6 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      #- name: Get deployment approval
-      #  uses: trstringer/manual-approval@v1
-      #  with:
-      #    secret: ${{ github.TOKEN }}
-      #    approvers: FDelporte
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -57,6 +54,13 @@ jobs:
           JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mvn -ntp -B jreleaser:config
+
+      # Only release when approved
+      - name: Get release approval
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: FDelporte
 
       # Post JARs to Maven Central
       # https://jreleaser.org/guide/latest/examples/maven/maven-central.html
