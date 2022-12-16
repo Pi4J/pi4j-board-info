@@ -2,8 +2,7 @@
 Raspberry Pi Info :: Utility Library providing information about the Raspberry Pi boards
 ========================================================================================
 
-Build state: 
-![GitHub Actions build state](https://github.com/pi4j/raspberry-pi-info/workflows/Continious%20Integration/badge.svg)
+![GitHub Actions build state](https://github.com/Pi4J/pi4j-board-info/actions/workflows/build.yml/badge.svg)
 
 [![License](https://img.shields.io/github/license/pi4j/pi4j-v2)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.pi4j/pi4j-board-info/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.pi4j/pi4j-board-info)
