@@ -11,7 +11,8 @@ public enum PiModel {
     MODEL_A("Model A", "Without ethernet connector"),
     MODEL_B("Model B", "With ethernet connector"),
     PICO("Pico", "Microcontroller"),
-    ZERO("Zero", "Smaller size and reduced GPIO capabilities");
+    ZERO("Zero", "Smaller size and reduced GPIO capabilities"),
+    UNKNOWN("Unknown", "");
 
     private final String label;
     private final String description;
