@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BoardModelTest {
+class BoardModelTest {
 
     @Test
-    public void testGetBoardModelByBoardCode() {
+    void testGetBoardModelByBoardCode() {
         assertAll(
                 () -> assertEquals(BoardModel.MODEL_400, BoardModel.getByBoardCode("c03130")),
                 () -> assertEquals(BoardModel.MODEL_4_B, BoardModel.getByBoardCode("a03111")),
@@ -20,7 +20,7 @@ public class BoardModelTest {
     }
 
     @Test
-    public void testGetBoardModelByBoardName() {
+    void testGetBoardModelByBoardName() {
         assertAll(
                 () -> assertEquals(BoardModel.MODEL_4_B, BoardModel.getByBoardName("Raspberry Pi 4 Model B Rev 1.1"))
         );

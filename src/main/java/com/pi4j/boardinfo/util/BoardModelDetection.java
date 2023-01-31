@@ -2,20 +2,23 @@ package com.pi4j.boardinfo.util;
 
 import com.pi4j.boardinfo.definition.BoardModel;
 import com.pi4j.boardinfo.model.DetectedBoard;
+import com.pi4j.boardinfo.model.OperatingSystem;
 
 public class BoardModelDetection {
 
-    public static DetectedBoard getBoard() {
-        var os = "TODO";
+    public static DetectedBoard getDetectedBoard() {
+        var os = new OperatingSystem(System.getProperty("os.name"),
+                System.getProperty("os.version"),
+                System.getProperty("os.arch"));
 
-        // c03111
+        // Example output: c03111
         var boardVersionCode = getCommandOutput( "cat /proc/cpuinfo | grep 'Revision' | awk '{print $3}'" );
         var boardModelByBoardCode = BoardModel.getByBoardCode(boardVersionCode);
         if (boardModelByBoardCode != BoardModel.UNKNOWN) {
             return new DetectedBoard(boardModelByBoardCode, os);
         }
 
-        // Raspberry Pi 4 Model B Rev 1.1
+        // Example output: Raspberry Pi 4 Model B Rev 1.1
         var boardName = getCommandOutput( "cat /proc/device-tree/model" );
         boardModelByBoardCode = BoardModel.getByBoardName(boardName);
         if (boardModelByBoardCode != BoardModel.UNKNOWN) {
