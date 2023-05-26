@@ -146,7 +146,7 @@
                                         <active>ALWAYS</active>
                                         <url>https://oss.sonatype.org/service/local</url>
                                         <closeRepository>true</closeRepository>
-                                        <releaseRepository>false</releaseRepository>
+                                        <releaseRepository>true</releaseRepository>
                                         <stagingRepositories>target/staging-deploy</stagingRepositories>
                                     </maven-central>
                                 </nexus2>
