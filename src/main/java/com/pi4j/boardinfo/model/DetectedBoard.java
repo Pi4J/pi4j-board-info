@@ -6,10 +6,12 @@ public class DetectedBoard {
 
     private final BoardModel boardModel;
     private final OperatingSystem operatingSystem;
+    private final JavaInfo javaInfo;
 
-    public DetectedBoard(BoardModel boardModel, OperatingSystem operatingSystem) {
+    public DetectedBoard(BoardModel boardModel, OperatingSystem operatingSystem, JavaInfo javaInfo) {
         this.boardModel = boardModel;
         this.operatingSystem = operatingSystem;
+        this.javaInfo = javaInfo;
     }
 
     public BoardModel getBoardModel() {
@@ -18,5 +20,9 @@ public class DetectedBoard {
 
     public OperatingSystem getOperatingSystem() {
         return operatingSystem;
+    }
+
+    public JavaInfo getJavaInfo() {
+        return javaInfo;
     }
 }
