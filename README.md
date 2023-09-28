@@ -18,7 +18,7 @@ Raspberry Pi Info :: Utility Library providing information about the Raspberry P
 
 Project website: [pi4j.com](https://pi4j.com/).
 
-This library is continuation of the project started by Frank Delporte
+This library is a continuation of the project started by Frank Delporte
 on [github.com/FDelporte/PiHeaders](https://github.com/FDelporte/PiHeaders).
 
 ### Build and distribute with JReleaser

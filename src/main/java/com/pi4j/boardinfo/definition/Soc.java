@@ -7,6 +7,7 @@ public enum Soc {
     BCM2710A1(InstructionSet.ARM_V8),
     BCM2711(InstructionSet.ARM_V8),
     BCM2711C0(InstructionSet.ARM_V8),
+    BCM2712(InstructionSet.ARM_V8),
     BCM2835(InstructionSet.ARM_V6),
     BCM2836(InstructionSet.ARM_V7),
     BCM2837(InstructionSet.ARM_V8),

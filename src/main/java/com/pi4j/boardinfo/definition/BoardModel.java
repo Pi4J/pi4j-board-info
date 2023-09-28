@@ -1,7 +1,7 @@
 package com.pi4j.boardinfo.definition;
 
-import com.pi4j.boardinfo.util.Markdown;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.pi4j.boardinfo.util.Markdown;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -18,6 +18,7 @@ import static com.pi4j.boardinfo.definition.BoardType.*;
  * <a href="https://en.wikipedia.org/wiki/Raspberry_Pi#Specifications">en.wikipedia.org/wiki/Raspberry_Pi</a>
  * <a href="https://oastic.com/posts/how-to-know-which-raspberry-do-you-have/">oastic.com/posts/how-to-know-which-raspberry-do-you-have</a>
  * <a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#new-style-revision-codes-in-use">raspberrypi.com/documentation/computers/raspberry-pi.html#new-style-revision-codes-in-use</a>
+ * <a href="https://www.raspberrypi-spy.co.uk/2012/09/checking-your-raspberry-pi-board-version/">raspberrypi-spy.co.uk/2012/09/checking-your-raspberry-pi-board-version/</a>
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum BoardModel {
@@ -122,6 +123,15 @@ public enum BoardModel {
             Cpu.CORTEX_A72, 4,
             Collections.singletonList(1800),
             Collections.singletonList(4096 * 1024)),
+    MODEL_5_B("Raspberry Pi 5 Model B", SINGLE_BOARD_COMPUTER,
+            Arrays.asList("??", "??"),
+            PiModel.MODEL_B,
+            HeaderVersion.TYPE_3,
+            LocalDate.of(2023, 9, 28),
+            Soc.BCM2712,
+            Cpu.CORTEX_A76, 4,
+            Collections.singletonList(2400),
+            Arrays.asList(4096 * 1024, 8192 * 1024)),
     COMPUTE_1("Compute Module 1", STACK_ON_COMPUTER,
             Collections.singletonList("900061"),
             PiModel.COMPUTE,
@@ -287,6 +297,24 @@ public enum BoardModel {
         return matches.get(0);
     }
 
+    public static String toMarkdownTable() {
+        StringBuilder rt = new StringBuilder();
+        rt.append(Markdown.toHeaderRow(Arrays.asList("Name", "Label", "Model", "Header version", "Release date", "Soc", "CPU", "#CPU", "Memory GB")));
+        for (BoardModel boardModel : BoardModel.values()) {
+            rt.append(Markdown.toValueRow(Arrays.asList(
+                    boardModel.name(),
+                    boardModel.getLabel(),
+                    boardModel.getModel().name(),
+                    boardModel.getHeaderVersion().name(),
+                    boardModel.getReleaseDate().format(DateTimeFormatter.ofPattern("yyyy-MM")),
+                    boardModel.getSoc().name(),
+                    boardModel.getCpu().getLabel(),
+                    String.valueOf(boardModel.getNumberOfCpu()),
+                    String.valueOf(boardModel.getVersionsMemoryInMb()))));
+        }
+        return rt.toString();
+    }
+
     public String getName() {
         return name();
     }
@@ -345,23 +373,5 @@ public enum BoardModel {
 
     public List<String> getRemarks() {
         return remarks;
-    }
-
-    public static String toMarkdownTable() {
-        StringBuilder rt = new StringBuilder();
-        rt.append(Markdown.toHeaderRow(Arrays.asList("Name", "Label", "Model", "Header version", "Release date", "Soc", "CPU", "#CPU", "Memory GB")));
-        for (BoardModel boardModel : BoardModel.values()) {
-            rt.append(Markdown.toValueRow(Arrays.asList(
-                    boardModel.name(),
-                    boardModel.getLabel(),
-                    boardModel.getModel().name(),
-                    boardModel.getHeaderVersion().name(),
-                    boardModel.getReleaseDate().format(DateTimeFormatter.ofPattern("yyyy-MM")),
-                    boardModel.getSoc().name(),
-                    boardModel.getCpu().getLabel(),
-                    String.valueOf(boardModel.getNumberOfCpu()),
-                    String.valueOf(boardModel.getVersionsMemoryInMb()))));
-        }
-        return rt.toString();
     }
 }
