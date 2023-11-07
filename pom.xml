@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.pi4j</groupId>
     <artifactId>pi4j-board-info</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 
     <name>Pi4J Board Info</name>
     <description>Java Utility Library providing info about the Raspberry Pi boards</description>

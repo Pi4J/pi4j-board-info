@@ -124,7 +124,7 @@ public enum BoardModel {
             Collections.singletonList(1800),
             Collections.singletonList(4096 * 1024)),
     MODEL_5_B("Raspberry Pi 5 Model B", SINGLE_BOARD_COMPUTER,
-            Arrays.asList("??", "??"),
+            Arrays.asList("c04170", "d04170"),
             PiModel.MODEL_B,
             HeaderVersion.TYPE_3,
             LocalDate.of(2023, 9, 28),
