@@ -14,6 +14,9 @@ Raspberry Pi Info :: Utility Library providing information about the Raspberry P
 
 ## PROJECT INFORMATION
 
+THIS PROJECT WAS MERGED INTO Pi4J V2 AND IS NOW ARCHIVED.
+See https://github.com/Pi4J/pi4j-v2/tree/develop/pi4j-core/src/main/java/com/pi4j/boardinfo
+
 ### General information
 
 Project website: [pi4j.com](https://pi4j.com/).
